@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Charbel's Focaccia</title>
+<style>
+  body { font: 18px system-ui; background: #faf5eb;
+    color: #304538; max-width: 460px; margin: auto; padding: 28px; }
+  h1 { font-size: 32px; }
+  label { display: block; margin: 24px 0; }
+  input { display: block; box-sizing: border-box; width: 100%;
+    padding: 12px; margin-top: 8px; font: inherit;
+    border: 1px solid #aaa; border-radius: 10px; }
+  section { background: white; padding: 20px; border-radius: 16px; }
+</style>
+
+<h1>Charbel's Focaccia 🌿</h1>
+<p>Your flour. Your quantities.</p>
+
+<label>All-purpose flour (grams)
+  <input id="flour" type="number" min="1" value="500">
+</label>
+<label>Hydration (% water relative to flour)
+  <input id="hydration" type="number" min="50" max="100" value="75">
+</label>
+<section id="result" aria-live="polite"></section>
+<p>Oil shown is for the dough. Pan oil and toppings are extra.
+Yeast depends on fermentation time and temperature.</p>
+
+<script>
+const flour = document.querySelector('#flour');
+const hydration = document.querySelector('#hydration');
+const result = document.querySelector('#result');
+
+function calculate() {
+  if (!flour.checkValidity() || !hydration.checkValidity()
+      || !flour.value || !hydration.value) {
+    result.textContent = 'Enter a positive flour weight and hydration of 50–100%.';
+    return;
+  }
+  const f = Number(flour.value);
+  const h = Number(hydration.value);
+  const grams = n => `${Math.round(n * 10) / 10} g`;
+  result.innerHTML = `
+    <p>🌾 Flour: <strong>${grams(f)}</strong></p>
+    <p>💧 Water: <strong>${grams(f * h / 100)}</strong></p>
+    <p>🧂 Salt (2%): <strong>${grams(f * .02)}</strong></p>
+    <p>🫒 Olive oil (3%): <strong>${grams(f * .03)}</strong></p>`;
+}
+flour.addEventListener('input', calculate);
+hydration.addEventListener('input', calculate);
+calculate();
+</script>
+</html>
