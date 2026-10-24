@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171b19">
+<meta name="description" content="An interactive cold-fermented focaccia recipe, scaled to your pans, with a personalized prep timeline and checklist.">
+<title>Focaccia Lab · Cold Ferment</title>
+<style>
+:root {color-scheme:dark;--bg:#151916;--panel:#202620;--panel2:#282f27;--stroke:#3b453a;--ink:#f5f1e6;--dim:#b3bcae;--muted:#809081;--accent:#f2bd77;--accent2:#d9e8a4;--shadow:0 20px 56px rgba(0,0,0,.2)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(ellipse at 5% 0%,#314032 0%,transparent 32%),var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif} button,input,select{font:inherit} button{cursor:pointer} button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px} a{color:var(--accent)} .wrap{max-width:1160px;margin:auto;padding:20px 20px 90px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0 25px}.brand{font-size:13px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--accent2)} .top-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.btn{border:1px solid var(--stroke);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:11px;font-weight:650;transition:background .15s,transform .15s}.btn:hover{background:#353d33}.btn:active{transform:translateY(1px)}.btn.primary{background:var(--accent);color:#33220e;border-color:var(--accent)}.btn.primary:hover{background:#f9cd94}.btn:disabled{opacity:.5;cursor:not-allowed}.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);background:linear-gradient(115deg,#263429 0%,#1e2923 53%,#31352a 100%);border:1px solid #47533e;border-radius:28px;overflow:hidden;min-height:330px;box-shadow:var(--shadow)}.hero-copy{position:relative;z-index:1;padding:44px 38px}.eyebrow{color:var(--accent2);letter-spacing:.17em;font-size:11px;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(39px,5.7vw,68px);line-height:1.02;letter-spacing:-.055em;margin:14px 0}.hero h1 em{font-style:normal;color:var(--accent)}.lede{font-size:16px;max-width:500px;color:#d2dfcf;margin:0 0 22px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:rgba(9,17,10,.45);color:#ecf1e8;border:1px solid rgba(217,232,164,.25);border-radius:25px;padding:6px 11px;font-size:12px;font-weight:650}.bread-graphic{align-self:center;justify-self:center;width:100%;max-width:420px;padding:10px;transform:rotate(-6deg);filter:drop-shadow(0 25px 25px rgba(0,0,0,.30))}.layout{display:grid;grid-template-columns:minmax(290px,350px) minmax(0,1fr);align-items:start;gap:20px;margin-top:23px}.sidebar{display:grid;gap:17px}.panel{border:1px solid var(--stroke);background:var(--panel);border-radius:20px;padding:22px;min-width:0}.panel h2{font-size:21px;letter-spacing:-.035em;margin:0 0 4px}.panel h3{font-size:17px;letter-spacing:-.02em;margin:0 0 10px}.subtitle,.note{font-size:13px;color:var(--dim);margin:0}.divider{height:1px;background:var(--stroke);margin:18px 0}.controls{display:grid;gap:18px;margin-top:19px}.control-row{display:flex;align-items:center;justify-content:space-between;gap:12px} .ctrl-label{display:block;font-size:13px;font-weight:700;color:#e4e9dc;margin-bottom:8px}.stepper{display:flex;align-items:center;border:1px solid var(--stroke);border-radius:12px;overflow:hidden;flex-shrink:0;background:#151b17}.stepper button{width:38px;height:38px;border:0;color:var(--ink);background:transparent;font-size:23px;line-height:1}.stepper button:hover{background:#374135}.stepper strong{width:42px;text-align:center;font-size:19px;font-variant-numeric:tabular-nums}.choice{display:grid;grid-template-columns:1fr 1fr;gap:6px;border:1px solid var(--stroke);border-radius:12px;padding:4px;background:#151b17}.choice button{padding:9px 6px;background:transparent;border:0;border-radius:8px;font-size:13px;color:var(--dim);font-weight:750}.choice button.selected{background:#495740;color:#fff;box-shadow:0 2px 8px #0002}.select{width:100%;color:var(--ink);background:#151b17;border:1px solid var(--stroke);border-radius:12px;padding:12px 11px;appearance:auto}.range-top{display:flex;justify-content:space-between;align-items:center}.range-top output{color:var(--accent);font-weight:800}.range{display:block;accent-color:var(--accent);width:100%;margin-top:7px}.metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}.metric{background:#161d17;border:1px solid var(--stroke);border-radius:13px;padding:14px 10px}.metric strong{display:block;font-size:clamp(19px,2.6vw,25px);font-variant-numeric:tabular-nums;letter-spacing:-.05em}.metric small{font-size:11px;color:var(--dim)}.maincol{display:grid;gap:20px}.section-heading{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:20px}.section-heading p{color:var(--dim);margin:3px 0 0;font-size:13px}.eyemark{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.ingredients{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ingredient{padding:13px 15px;background:var(--panel2);border-radius:13px;display:flex;justify-content:space-between;gap:8px;align-items:center}.ingredient label{font-size:13px;color:#dfe7d9}.ingredient strong{font-size:18px;letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums}.ingredient.featured{border:1px solid #7a6a46;background:#383a29}.inline-info{margin-top:15px;background:#353d2e;border:1px solid #66704c;border-radius:13px;padding:13px 14px;font-size:13px}.inline-info b{color:var(--accent2)}.smallprint{font-size:12px;color:var(--dim);margin:11px 0 0}.timeline{display:grid;grid-template-columns:1fr 1fr;gap:10px}.timeline-item{background:#171d18;border:1px solid var(--stroke);border-radius:13px;padding:13px}.timeline-item span{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent2);font-weight:800}.timeline-item strong{display:block;font-size:15px;line-height:1.3;margin:6px 0 3px}.timeline-item small{font-size:12px;color:var(--dim)}.date-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 16px}.date-controls input{background:#151b17;color:#f5f1e6;border:1px solid var(--stroke);border-radius:10px;padding:10px;min-width:0;flex:1}.progress-line{height:8px;background:#141a15;border-radius:99px;overflow:hidden;margin:10px 0}.progress-line div{height:100%;background:linear-gradient(90deg,#b2ce8b,var(--accent));border-radius:99px;transition:width .2s}.progress-label{display:flex;justify-content:space-between;color:var(--dim);font-size:12px}.steps{display:grid;gap:10px}.step{border:1px solid var(--stroke);border-radius:15px;overflow:hidden;background:#242b24}.step.done{border-color:#71865b}.step summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:16px}.step summary::-webkit-details-marker{display:none}.step-num{flex:0 0 31px;height:31px;border-radius:9px;display:grid;place-items:center;background:#3d493c;color:var(--accent2);font-weight:850}.step.done .step-num{background:#678257;color:white}.step-title{flex:1;font-size:15px;font-weight:750}.step-chevron{color:var(--dim);font-size:22px;line-height:1}.step[open] .step-chevron{transform:rotate(90deg)}.step-body{padding:0 16px 16px 60px;font-size:14px;color:#d6dfd1}.step-body p{margin:0 0 12px}.cue{font-size:12px;border-left:3px solid var(--accent);padding-left:11px;color:var(--dim);margin:12px 0}.done-btn{font-size:13px;font-weight:750;border:1px solid #728563;background:#394a36;color:#e7f5e3;border-radius:10px;padding:9px 12px}.step.done .done-btn{background:#4a6150}.tips{display:grid;gap:9px}.tip{border-left:2px solid var(--accent);padding:5px 0 5px 14px;color:#d8dfd4;font-size:13px}.tip strong{display:block;color:var(--ink)}.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:12px}.toast{position:fixed;z-index:30;left:50%;bottom:28px;transform:translate(-50%,90px);opacity:0;transition:.2s;pointer-events:none;background:#eff5e7;color:#162419;padding:11px 18px;border-radius:12px;font-weight:750;box-shadow:0 14px 45px #0007}.toast.show{transform:translate(-50%,0);opacity:1}.print-only{display:none}
+@media(max-width:840px){.hero{grid-template-columns:1fr 245px;min-height:280px}.hero-copy{padding:34px 28px}.layout{grid-template-columns:1fr}.sidebar{grid-template-columns:1fr 1fr}.sidebar .panel:first-child{grid-row:span 2}}
+@media(max-width:620px){.wrap{padding:13px 12px 66px}.topbar{padding:5px 3px 15px}.brand{font-size:12px}.top-actions .btn{font-size:12px;padding:8px 9px}.hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:31px 25px 22px}.hero h1{font-size:clamp(38px,11.5vw,54px)}.hero .lede{font-size:14px}.bread-graphic{max-width:290px;margin:-30px 0 -30px auto;opacity:.87}.layout{margin-top:13px;gap:13px}.sidebar{grid-template-columns:1fr;gap:13px}.sidebar .panel:first-child{grid-row:auto}.maincol{gap:13px}.panel{padding:18px;border-radius:17px}.ingredients{grid-template-columns:1fr 1fr;gap:7px}.ingredient{display:block;padding:12px}.ingredient label{font-size:11px;display:block}.ingredient strong{font-size:19px}.section-heading{margin-bottom:15px}.timeline{gap:8px}.timeline-item{padding:12px}.date-controls input{min-width:160px}.step summary{padding:14px}.step-body{padding:0 14px 15px 58px}}
+@media print{body{background:white;color:black}.topbar,.btn,.controls,.done-btn,.date-controls,.footer,.toast,.step-chevron{display:none!important}.wrap{max-width:100%;padding:0}.hero{box-shadow:none;min-height:0;color:black;background:#eee;border:1px solid #bbb}.hero-copy{padding:14px}.hero h1{font-size:35px}.hero h1 em{color:black}.hero .lede{color:#333}.chips{display:none}.bread-graphic{display:none}.layout{display:block}.sidebar{display:none}.panel,.ingredient,.timeline-item,.step{background:white;color:black;border:1px solid #bbb;break-inside:avoid}.maincol{display:block}.maincol>.panel{margin-top:15px}.panel h2,.step-title,.ingredient label,.ingredient strong{color:black}.smallprint,.step-body,.note,.section-heading p,.cue{color:#333}.step summary{padding:7px}.step-body{padding:0 10px 12px 50px}.step{margin:5px 0}.step-body{display:block!important}.print-only{display:block}}
+
+body[data-recipe-kind="focaccia"] .guided-launch{background:#234a37;color:#f8f4e9;border:1px solid #9c9165;}
+/* Guided Baking Studio — shared across both recipe labs */
+[hidden]{display:none!important}
+.guided-launch{margin:23px 0 2px;border:1px solid #dca966;background:linear-gradient(118deg,#fff0cf15,#ffd08e20);border-radius:21px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 12px 35px #090f1018;color:inherit}
+.guided-launch h2{font-size:clamp(21px,3vw,28px);letter-spacing:-.04em;margin:5px 0 7px}
+.guided-launch p{font-size:14px;opacity:.85;margin:0;max-width:580px}
+.guided-launch small{display:block;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#ffce84}
+.guided-launch button{cursor:pointer;min-width:195px;border:0;border-radius:13px;background:#f7be70;color:#273020;font-size:16px;font-weight:800;font-family:inherit;padding:17px 22px;box-shadow:0 10px 26px #0002}
+.guided-launch button:focus-visible,.cook-shell button:focus-visible,.cook-shell textarea:focus-visible,.cook-shell input:focus-visible{outline:3px solid #ffbc68;outline-offset:3px}
+body.guided-open{overflow:hidden}
+.cook-shell{position:fixed;inset:0;z-index:9999;background:#10261e;color:#f6f5e9;overflow:auto;overscroll-behavior:contain;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.cook-shell *{box-sizing:border-box}
+.cook-shell button{font:inherit;cursor:pointer;color:inherit}
+.cook-shell .cook-header{position:sticky;top:0;z-index:10;background:#142c24f5;border-bottom:1px solid #42604d;padding:12px max(16px,env(safe-area-inset-left));backdrop-filter:blur(20px)}
+.cook-shell .cook-header-inner{display:flex;align-items:center;gap:12px;justify-content:space-between;max-width:1020px;margin:0 auto}
+.cook-shell .cook-brand{font-size:12px;letter-spacing:.13em;font-weight:850;text-transform:uppercase;color:#f6c987}
+.cook-shell .cook-batch{font-size:12px;color:#bdd0ba;line-height:1.4}
+.cook-shell .cook-close{white-space:nowrap;padding:10px 12px;border-radius:10px;background:#254235;border:1px solid #587263;font-weight:700;font-size:13px}
+.cook-shell .cook-wrap{max-width:1020px;margin:0 auto;padding:24px 18px 130px}
+.cook-shell .cook-overline{font-size:12px;color:#f9c888;letter-spacing:.12em;font-weight:800;text-transform:uppercase;margin:0 0 7px}
+.cook-shell .cook-h1{font-size:clamp(29px,4vw,43px);line-height:1.12;letter-spacing:-.045em;margin:0 0 13px;font-weight:850}
+.cook-shell .cook-intro{color:#c9d7c7;margin:0 0 18px;max-width:690px;font-size:14px}
+.cook-shell .cook-progress-line{height:8px;overflow:hidden;border-radius:12px;background:#3a5342;margin-bottom:11px}
+.cook-shell .cook-progress-fill{height:100%;background:#ffc875;transition:width .2s}
+.cook-shell .cook-progress-label{display:flex;justify-content:space-between;font-size:12px;color:#c6d1c4;gap:14px;margin-bottom:18px}
+.cook-shell .cook-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.cook-shell .cook-jumps button{width:35px;height:35px;border-radius:10px;border:1px solid #627868;background:#294537;color:#f2f1e7;font-size:13px;font-weight:800}
+.cook-shell .cook-jumps button.active{background:#ffc875;color:#2a261d;border-color:#ffc875}
+.cook-shell .cook-jumps button.complete:not(.active){border-color:#7dbb8c;color:#b9e3bd}
+.cook-shell .cook-columns{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:16px;align-items:start}
+.cook-shell .cook-card{border-radius:19px;border:1px solid #456653;background:#1b382a;padding:23px;box-shadow:0 11px 32px #0002}
+.cook-shell .cook-card h2{font-size:23px;line-height:1.22;letter-spacing:-.03em;margin:0 0 14px}
+.cook-shell .cook-description p{color:#ebf0df;font-size:16px;line-height:1.75;margin:0 0 14px}
+.cook-shell .cook-description strong{color:#ffd295;font-weight:850}
+.cook-shell .cook-description .cue{background:#2c4935;border-left:3px solid #fbc77e;padding:12px 13px;margin:13px 0;border-radius:0 10px 10px 0;font-size:14px;color:#e6efdc}
+.cook-shell .cook-description h4{margin:10px 0}
+.cook-shell .cook-stepdone{display:flex;align-items:center;gap:12px;padding:14px 15px;margin-top:16px;border-radius:12px;background:#244637;border:1px solid #64866a;cursor:pointer;font-weight:800}
+.cook-shell .cook-stepdone input{width:23px;height:23px;accent-color:#ffc875;flex:none}
+.cook-shell .cook-timer{background:#203b30;border:1px solid #456452;border-radius:15px;padding:17px;margin-bottom:14px}
+.cook-shell .cook-timer-header{display:flex;gap:6px;justify-content:space-between;align-items:start;margin-bottom:10px}
+.cook-shell .cook-timer strong{font-size:13px}
+.cook-shell .cook-clock{font-size:39px;font-weight:850;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1.3;color:#ffe2af}
+.cook-shell .cook-timer-controls{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 0}
+.cook-shell .cook-smallbtn{border:1px solid #648069;border-radius:9px;padding:9px 11px;background:#2b4b38;font-size:12px!important;font-weight:750!important}
+.cook-shell .cook-smallbtn.on{background:#f6c880;color:#28281e;border-color:#f6c880}
+.cook-shell .cook-timer-message{font-size:12px;color:#c3d2c3;margin:8px 0 0}
+.cook-shell .cook-side-title{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#f4c781;font-weight:850;margin:0 0 12px}
+.cook-shell .cook-ingredients{display:grid;gap:8px;font-variant-numeric:tabular-nums}
+.cook-shell .cook-ingredient{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #3b5644;padding:3px 0 8px;font-size:13px}
+.cook-shell .cook-ingredient:last-child{border:0}
+.cook-shell .cook-ingredient span{color:#e3e9de}
+.cook-shell .cook-ingredient b{white-space:nowrap;color:#ffd59a}
+.cook-shell .cook-side-divider{height:1px;background:#42604e;margin:16px 0}
+.cook-shell .cook-note{width:100%;min-height:92px;background:#102a20;color:#fff3db;border:1px solid #597561;border-radius:11px;padding:12px;font:14px/1.4 inherit;font-family:inherit;resize:vertical}
+.cook-shell .cook-caption{font-size:11px;color:#b4c6b5;margin:8px 0 0}
+.cook-shell .cook-counter{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:15px;padding:14px;background:#2b4934;border-radius:12px}
+.cook-shell .cook-counter strong{margin-right:auto}
+.cook-shell .cook-counter button{min-width:37px;min-height:37px;border-radius:9px;border:1px solid #69866c;background:#335940;font-size:22px;line-height:1}
+.cook-shell .cook-counter span{font-size:16px;font-weight:850;font-variant-numeric:tabular-nums}
+.cook-shell .cook-finish{padding:13px;background:#2c4835;border:1px solid #709171;border-radius:11px;margin:16px 0;color:#dbe9cf}
+.cook-shell .cook-footer{position:fixed;bottom:0;left:0;right:0;padding:12px max(15px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));background:#142a22f7;box-shadow:0 -8px 35px #0005;border-top:1px solid #4b6353;z-index:11;backdrop-filter:blur(18px)}
+.cook-shell .cook-footer-inner{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr 1fr;gap:10px}
+.cook-shell .cook-footer button{border-radius:12px;min-height:51px;padding:8px 10px;font-weight:850;border:1px solid #698471;background:#2e503b}
+.cook-shell .cook-footer button.primary{background:#ffc875;border-color:#ffc875;color:#2b291f}
+.cook-shell .cook-footer button:disabled{opacity:.4;cursor:default}
+.cook-shell .cook-toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#ffe4ae;color:#262a20;padding:13px 18px;border-radius:12px;font-weight:850;z-index:20;box-shadow:0 14px 30px #0006}
+@media(max-width:750px){.guided-launch{flex-direction:column;align-items:stretch;padding:19px}.guided-launch button{width:100%}.cook-shell .cook-wrap{padding:20px 13px 130px}.cook-shell .cook-columns{grid-template-columns:1fr}.cook-shell .cook-card{padding:19px 16px}.cook-shell .cook-footer-inner{grid-template-columns:1fr 1.6fr 1fr;gap:7px}.cook-shell .cook-footer button{font-size:13px;padding:8px 5px;min-height:49px}.cook-shell .cook-header-inner{gap:8px}.cook-shell .cook-brand{font-size:11px}.cook-shell .cook-batch{font-size:11px}.cook-shell .cook-jumps{gap:6px}.cook-shell .cook-jumps button{width:33px;height:33px}}
+@media print{.guided-launch,.cook-shell{display:none!important}}
+
+</style>
+</head>
+<body data-recipe-kind="focaccia">
+<div class="wrap">
+  <header class="topbar"><div class="brand">✦ The Focaccia Lab</div><div class="top-actions"><button class="btn" id="copyBtn" title="Copy ingredients and instructions">Copy recipe</button><button class="btn" id="printBtn" title="Print or save as PDF">Print / PDF</button></div></header>
+  <section class="hero" aria-label="Recipe introduction"><div class="hero-copy"><div class="eyebrow">Your house recipe · version 1.0</div><h1>Good bread<br><em>takes time.</em></h1><p class="lede">Cold-fermented focaccia with a fluffy, open crumb and a crisp olive-oil bottom. Made for two generous pans and a 3–4 cm rise.</p><div class="chips"><span class="chip">3–4 cm thick</span><span class="chip">80% hydration</span><span class="chip">35% whole wheat</span><span class="chip">24–48h cold ferment</span></div></div>
+    <svg class="bread-graphic" viewBox="0 0 410 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="crust" x1="45" x2="320" y1="40" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#F6D69A"/><stop offset=".47" stop-color="#DDA157"/><stop offset="1" stop-color="#A76D31"/></linearGradient><linearGradient id="edge" x1="0" x2="0" y1="0" y2="100%"><stop stop-color="#9B5E2E"/><stop offset="1" stop-color="#6C4827"/></linearGradient></defs>
+      <path d="M36 104L286 34L390 118L141 206Z" fill="#1A1C15" opacity=".32" transform="translate(0 52)"/>
+      <path d="M34 95L280 32Q286 30 292 34L382 108Q391 116 382 124L149 213Q144 215 135 209L30 111Q21 103 34 95Z" fill="#544631" stroke="#30291D" stroke-width="8"/>
+      <path d="M37 102L282 42L373 113L144 199Z" fill="url(#crust)" stroke="#93572D" stroke-width="5"/>
+      <path d="M33 104L143 200L143 238L31 143Z" fill="url(#edge)"/><path d="M143 200L374 113L373 147L143 238Z" fill="#855329"/>
+      <path d="M31 143L143 239L374 147" stroke="#A57B4B" stroke-width="5"/>
+      <g fill="#AC632B" opacity=".92"><ellipse cx="105" cy="105" rx="19" ry="10" transform="rotate(19 105 105)"/><ellipse cx="190" cy="82" rx="21" ry="11" transform="rotate(-15 190 82)"/><ellipse cx="260" cy="95" rx="16" ry="12"/><ellipse cx="172" cy="154" rx="18" ry="10"/><ellipse cx="290" cy="142" rx="22" ry="9"/><ellipse cx="101" cy="160" rx="14" ry="9"/></g>
+      <g stroke="#324E29" stroke-width="4" stroke-linecap="round"><path d="M80 86l25 -22m-14 12l-9 -20m15 14l21 1"/><path d="M210 119l42 -25m-28 17l-3 -23m18 15l24 3"/><path d="M275 67l29 -15m-18 10l-5 -20m10 15l15 4"/><path d="M140 145l-25 -24m13 12l20 -18m-23 13l-19 1"/></g>
+      <g fill="#FCEBB5" opacity=".85"><ellipse cx="85" cy="117" rx="3" ry="2"/><ellipse cx="149" cy="82" rx="4" ry="2"/><ellipse cx="221" cy="62" rx="3" ry="2"/><ellipse cx="319" cy="116" rx="3" ry="2"/><ellipse cx="230" cy="151" rx="3" ry="2"/><ellipse cx="129" cy="174" rx="3" ry="2"/></g>
+    </svg>
+  </section>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Recipe configuration">
+      
+<section id="guidedLaunch" class="guided-launch" aria-label="Guided cooking">
+  <div><small>NEW · Hands-on baking mode</small><h2>Cook right from your screen</h2>
+  <p>Choose your batch in the settings below, then follow one step at a time. Quantities, checkboxes, an optional countdown timer, and your notes stay right in the app.</p></div>
+  <button type="button" id="guidedStart">▶ Start guided bake</button>
+</section>
+
+<section class="panel"><h2>Make it yours</h2><p class="subtitle">Adjust the recipe. Every quantity and instruction updates automatically.</p>
+        <div class="controls">
+          <div class="control-row"><div><span class="ctrl-label" style="margin-bottom:0">Number of pans</span><div class="note">Same thickness in every pan</div></div><div class="stepper"><button id="less" aria-label="Remove one pan">−</button><strong id="panCount">2</strong><button id="more" aria-label="Add one pan">+</button></div></div>
+          <div><label class="ctrl-label" for="shape">Pan size / shape</label><select id="shape" class="select"><option value="round23">23 cm round · original</option><option value="square23">23 × 23 cm square</option><option value="round26">26 cm round</option><option value="rect2333">23 × 33 cm rectangular</option></select></div>
+          <div><div class="ctrl-label">Cold fermentation</div><div class="choice" role="group" aria-label="Fermentation duration"><button data-ferment="24" type="button">24 hours</button><button class="selected" data-ferment="48" type="button">48 hours</button></div></div>
+          <div><div class="ctrl-label">Mixing method</div><div class="choice" role="group" aria-label="Mixing method"><button data-mix="hand" type="button">By hand</button><button class="selected" data-mix="mixer" type="button">KitchenAid</button></div></div>
+          <div><div class="range-top"><label class="ctrl-label" for="hydration" style="margin:0">Hydration</label><output id="hydrationVal" for="hydration">80%</output></div><input id="hydration" class="range" type="range" min="75" max="85" value="80" step="1"><p class="note">80% gives a light crumb. Lower is easier to handle.</p></div>
+          <div><div class="range-top"><label class="ctrl-label" for="whole" style="margin:0">Whole-wheat flour</label><output id="wholeVal" for="whole">35%</output></div><input id="whole" class="range" type="range" min="0" max="45" value="35" step="5"><p class="note">Your usual flavour profile: 35% whole wheat.</p></div>
+        </div>
+      </section>
+      <section class="panel"><h2>Dough at a glance</h2><div class="metric-grid"><div class="metric"><strong id="doughTotal">1,397</strong><small>grams total</small></div><div class="metric"><strong id="doughEach">698</strong><small>grams / pan</small></div><div class="metric"><strong>3–4</strong><small>cm target</small></div></div><div class="divider"></div><p class="subtitle" id="panNote">For 2 × 23 cm round pans.</p><p class="smallprint">Final height depends on pan dimensions, proofing and oven spring. Dough quantity is scaled by pan area.</p></section>
+      <section class="panel"><h3>Water temperature</h3><div style="font-size:36px;color:var(--accent);letter-spacing:-.04em;font-weight:850" id="waterTemp">15–18°C</div><p class="subtitle" id="waterNote">For a KitchenAid mixer and a 48-hour cold ferment.</p><p class="smallprint">Aim for dough around 22–24°C after mixing. Water should be cool, never hot.</p></section>
+    </aside>
+    <main class="maincol">
+      <section class="panel" id="ingredientsPanel"><div class="section-heading"><div><div class="eyemark">01 / Ingredients</div><h2>Everything weighed out</h2><p>Amounts are for your entire batch.</p></div><button class="btn" id="ingredientCopy">Copy list</button></div>
+        <div id="ingredientGrid" class="ingredients" aria-live="polite"></div>
+        <div class="inline-info"><b>Extra olive oil:</b> <span id="extraOil"></span> for pans and dimpling, plus rosemary and flaky salt. Grease the pans generously for a crisp base.</div>
+        <p class="smallprint">Yeast quantities assume instant dry yeast and a refrigerator near 4°C. If using active dry or fresh yeast, convert separately. A precise scale is useful for small yeast amounts.</p>
+      </section>
+      <section class="panel"><div class="section-heading"><div><div class="eyemark">02 / Plan your bake</div><h2>A timeline that works</h2><p>Set when you plan to begin mixing.</p></div></div>
+        <div class="date-controls"><label class="ctrl-label" for="startTime" style="margin:0">Mixing starts</label><input type="datetime-local" id="startTime"><button class="btn" id="nowBtn">Use now</button></div>
+        <div class="timeline" id="timeline" aria-live="polite"></div>
+        <p class="smallprint">Timeline estimate: allow 1 hour 30 minutes for mixing and folds, then 24 or 48 hours in the fridge, then around 3 hours to proof in pans. Bake when the dough is puffy and jiggly, not strictly by the clock.</p>
+      </section>
+      <section class="panel"><div class="section-heading"><div><div class="eyemark">03 / Method</div><h2>Step-by-step baking guide</h2><p>Tap each step for detailed directions and ingredient quantities.</p></div><button class="btn" id="resetSteps">Reset</button></div><div class="progress-label"><span>Your progress</span><strong id="progressText">0 of 8 complete</strong></div><div class="progress-line"><div id="progressBar" style="width:0%"></div></div><div class="steps" id="steps"></div></section>
+      <section class="panel"><div class="eyemark">Baker's notes</div><h2>For a good 3–4 cm rise</h2><div class="tips"><div class="tip"><strong>Give it room to puff.</strong> Don't forcefully stretch or deflate the dough after the cold ferment.</div><div class="tip"><strong>Use a metal pan.</strong> Avoid glass if the goal is a really crisp, golden base.</div><div class="tip"><strong>Preheat fully.</strong> Bake in your home oven at 230°C / 445°F, typically 25–35 minutes. Use a lower rack if the bottom needs more colour.</div><div class="tip"><strong>Lift it out promptly.</strong> Cool on a wire rack, so the underside doesn't steam and soften.</div></div></section>
+    </main>
+  </div>
+  <footer class="footer">✦ Focaccia Lab · Offline-ready · Settings and completed steps are saved on this device when local storage is available. <br>Save this HTML file to keep the recipe; if you use GitHub Pages, upload it there for an easy bookmark.</footer>
+</div>
+<div class="toast" role="status" id="toast" aria-live="polite"></div>
+<script>
+(()=>{'use strict';
+const STORE='focaccia-lab-v1';const $=id=>document.getElementById(id);const BASE_AREA=Math.PI*11.5*11.5;
+const pans={round23:{area:BASE_AREA,label:'23 cm round'},square23:{area:23*23,label:'23 × 23 cm square'},round26:{area:Math.PI*13*13,label:'26 cm round'},rect2333:{area:23*33,label:'23 × 33 cm rectangular'}};
+const defaults={count:2,shape:'round23',ferment:48,mix:'mixer',hydration:80,whole:35,start:'',done:[]};
+let s={...defaults};try{const saved=JSON.parse(localStorage.getItem(STORE)||'{}');s={...defaults,...saved};if(!Array.isArray(s.done))s.done=[];}catch(e){}
+s.count=Math.max(1,Math.min(6,Number(s.count)||2));if(!pans[s.shape])s.shape='round23';if(![24,48].includes(Number(s.ferment)))s.ferment=48;if(!['mixer','hand'].includes(s.mix))s.mix='mixer';s.hydration=Math.max(75,Math.min(85,Number(s.hydration)||80));s.whole=Math.max(0,Math.min(45,Number(s.whole)??35));
+function save(){try{localStorage.setItem(STORE,JSON.stringify(s));}catch(e){}}
+function fmtNum(n,d=0){const v=Number(n.toFixed(d));return v.toLocaleString('en-CA',{maximumFractionDigits:d,minimumFractionDigits:0})}
+function grams(n,d=0){return fmtNum(n,d)+' g'}
+function recipe(){let flour=Math.round(375*s.count*(pans[s.shape].area/BASE_AREA));let ww=Math.floor(flour*s.whole/100);return{flour,ww,white:flour-ww,water:Math.round(flour*s.hydration/100),salt:Math.round(flour*2)/100,oil:Math.round(flour*4)/100,yeast:flour*(s.ferment===48?.002:2/750),extraMin:Math.round(20*s.count*pans[s.shape].area/BASE_AREA),extraMax:Math.round(25*s.count*pans[s.shape].area/BASE_AREA)}}
+function doughWeight(r){return r.flour+r.water+r.salt+r.oil+r.yeast}
+function waterTemp(){if(s.ferment===48)return s.mix==='mixer'?['15–18°C','For a KitchenAid mixer and a 48-hour cold ferment. Use about 18°C water as a simple starting point.']:['18–20°C','For mixing by hand with a 48-hour cold ferment.'];return s.mix==='mixer'?['16–19°C','For a KitchenAid mixer and a 24-hour cold ferment.']:['20–22°C','For mixing by hand with a 24-hour cold ferment.']}
+function updateControls(){ $('panCount').textContent=s.count;$('less').disabled=s.count<=1;$('more').disabled=s.count>=6;$('shape').value=s.shape;$('hydration').value=s.hydration;$('whole').value=s.whole;$('hydrationVal').textContent=s.hydration+'%';$('wholeVal').textContent=s.whole+'%';document.querySelectorAll('[data-ferment]').forEach(b=>{const on=+b.dataset.ferment===+s.ferment;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',on)});document.querySelectorAll('[data-mix]').forEach(b=>{const on=b.dataset.mix===s.mix;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',on)});let w=waterTemp();$('waterTemp').textContent=w[0];$('waterNote').textContent=w[1];$('panNote').textContent=`For ${s.count} × ${pans[s.shape].label} ${s.count===1?'pan':'pans'}.`}
+function ingredients(r){return[['White flour',r.white,0],['Whole-wheat flour',r.ww,0],['Cool water',r.water,1],['Fine salt',r.salt,0],['Olive oil · in dough',r.oil,0],['Instant yeast',r.yeast,0]]}
+function renderIngredients(r){$('ingredientGrid').innerHTML=ingredients(r).map(([label,value,featured])=>`<div class="ingredient ${featured?'featured':''}"><label>${label}</label><strong>${grams(value,label==='Instant yeast'?2:label.includes('oil')||label.includes('salt')?1:0)}</strong></div>`).join('');$('extraOil').textContent=`about ${r.extraMin}–${r.extraMax} g`;$('doughTotal').textContent=fmtNum(doughWeight(r));$('doughEach').textContent=fmtNum(doughWeight(r)/s.count)}
+const addMinutes=(d,m)=>new Date(d.getTime()+m*60000);
+function pad(n){return String(n).padStart(2,'0')}
+function localDateValue(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`}
+function formatDate(d){return d.toLocaleString('en-CA',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',hour12:true})}
+function renderTimeline(){let start=new Date(s.start);if(!Number.isFinite(start.getTime())){start=new Date();start.setMinutes(Math.ceil(start.getMinutes()/15)*15,0,0);s.start=localDateValue(start)}$('startTime').value=s.start;start=new Date(s.start);const chill=addMinutes(start,90),pan=addMinutes(chill,s.ferment*60),bake=addMinutes(pan,180);const items=[['01 Mix + folds',start,'Start the dough'],['02 Fridge',chill,`Chill for ${s.ferment} hours`],['03 Oil + pan',pan,'Divide and proof covered'],['04 Bake',bake,'Check for puffiness first']];$('timeline').innerHTML=items.map(([title,time,desc])=>`<div class="timeline-item"><span>${title}</span><strong>${formatDate(time)}</strong><small>${desc}</small></div>`).join('')}
+function stepContents(r){const portion=grams(doughWeight(r)/s.count);const mixText=s.mix==='mixer'?`Using your KitchenAid on low speed with the dough hook, mix <strong>${grams(r.white)} white flour</strong>, <strong>${grams(r.ww)} whole-wheat flour</strong>, <strong>${grams(r.water)} water</strong>, and <strong>${grams(r.yeast,2)} instant yeast</strong> for about 2–3 minutes, just until combined. Avoid high speed.`:`Mix <strong>${grams(r.white)} white flour</strong>, <strong>${grams(r.ww)} whole-wheat flour</strong>, <strong>${grams(r.water)} water</strong>, and <strong>${grams(r.yeast,2)} instant yeast</strong> in a large bowl with a spoon or wet hands until no flour remains dry.`;
+return [
+{title:'Mix flour, water and yeast',body:`<p>${mixText} Cover the bowl and let it rest for <strong>20 minutes</strong>.</p><div class="cue">Look for: shaggy, sticky dough with no dry pockets. Use water around ${waterTemp()[0]}.</div>`},
+{title:'Add salt and olive oil',body:`<p>Add <strong>${grams(r.salt,1)} fine salt</strong> and <strong>${grams(r.oil,1)} olive oil</strong>. ${s.mix==='mixer'?'Mix on low for another 3–5 minutes, stopping to scrape the bowl as needed.':'Squeeze, pinch and fold until incorporated, about 3–5 minutes.'}</p><div class="cue">Look for: cohesive but very soft dough. No need to force a perfect windowpane.</div>`},
+{title:'Build strength with 3 folds',body:`<p>Over the next <strong>60 minutes</strong>, do three sets of stretch-and-folds, roughly <strong>20 minutes apart</strong>. With damp or lightly oiled hands, lift one edge, stretch gently and fold it over. Rotate the bowl and repeat around the dough.</p><div class="cue">Look for: dough gaining tension and holding its shape a little better each set.</div>`},
+{title:'Cold-ferment in the fridge',body:`<p>Put dough into a lightly oiled, roomy covered container. Refrigerate near <strong>4°C for ${s.ferment} hours</strong>, counting from the moment you put it in the fridge. It should have enough space to expand.</p><div class="cue">Look for: small bubbles, gradual expansion and a pleasant fermented aroma. If it appears to be over-rising, chill promptly and bake sooner.</div>`},
+{title:'Divide into well-oiled pans',body:`<p>Pour a generous share of the extra olive oil into each ${pans[s.shape].label} pan. Divide dough into <strong>${s.count} equal portions of about ${portion} each</strong>. Gently transfer one portion into each pan without deliberately deflating it.</p><p>Let the dough relax for <strong>20 minutes</strong>, then gently coax it toward the edges. Don't force it if it resists; rest again.</p><div class="cue">Look for: dough spreading naturally with bubbles still visible.</div>`},
+{title:'Proof covered until airy',body:`<p>Cover pans loosely but well, and leave at room temperature for approximately <strong>2–4 hours</strong>, depending on how cold the dough is and your room temperature. Preheat the oven thoroughly near the end.</p><div class="cue">Look for: a distinctly puffy, jiggly mass with visible bubbles. Dough readiness matters more than the clock.</div>`},
+{title:'Dimple, oil and season',body:`<p>Drizzle with remaining olive oil, and press your oiled fingertips down into the dough to create deep dimples, without crushing all the bubbles. Sprinkle with rosemary and flaky salt.</p><div class="cue">Look for: airy dough with evenly distributed dimples. If it deflates dramatically, it may be overproofed.</div>`},
+{title:'Bake until deeply golden',body:`<p>Bake in a fully preheated conventional oven at <strong>230°C / 445°F</strong> for approximately <strong>25–35 minutes</strong>, checking from 22 minutes onward. For a crispy bottom, favour a lower-middle rack and a metal pan.</p><p>Lift the focaccia out of the pan soon after baking, check the underside, and cool on a wire rack.</p><div class="cue">Look for: a deep golden top, firm edges and a crisp, well-coloured bottom. If the underside is pale, return it to the oven briefly.</div>`}
+]}
+function renderSteps(r){let stepData=stepContents(r);$('steps').innerHTML=stepData.map((step,i)=>{const done=s.done.includes(i);return `<details class="step ${done?'done':''}" ${i===0?'open':''}><summary><span class="step-num">${done?'✓':i+1}</span><span class="step-title">${step.title}</span><span class="step-chevron">›</span></summary><div class="step-body">${step.body}<button class="done-btn" data-done="${i}" type="button">${done?'✓ Completed · Undo':'Mark step complete'}</button></div></details>`}).join('');updateProgress()}
+function updateProgress(){$('progressText').textContent=`${s.done.length} of 8 complete`;$('progressBar').style.width=(s.done.length/8*100)+'%'}
+function update(){let r=recipe();updateControls();renderIngredients(r);renderTimeline();renderSteps(r);save()}
+let toastTimeout;function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('show'),2600)}
+function plainRecipe(ingredientsOnly=false){let r=recipe();const a=[`FOCACCIA LAB — ${s.count} × ${pans[s.shape].label} pans`,`Thickness: 3–4 cm | Cold ferment: ${s.ferment} h | Hydration: ${s.hydration}% | Whole wheat: ${s.whole}% | Mixing: ${s.mix==='mixer'?'KitchenAid':'hand'}`,'',...ingredients(r).map(([k,v])=>`${k}: ${grams(v,k==='Instant yeast'?2:k.includes('salt')||k.includes('oil')?1:0)}`),`Extra olive oil for pans + topping: ${r.extraMin}–${r.extraMax} g`,`Water temperature: ${waterTemp()[0]}`];if(!ingredientsOnly){a.push('','METHOD',...stepContents(r).map((x,i)=>`${i+1}. ${x.title}: ${x.body.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()}`),'','Bake at 230°C / 445°F about 25–35 minutes, until golden.');}return a.join('\n')}
+async function copy(text){try{await navigator.clipboard.writeText(text);toast('Copied to clipboard ✓')}catch(e){const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch(err){}t.remove();toast(ok?'Copied to clipboard ✓':'Copy unavailable here — use Print / PDF')}}
+$('less').addEventListener('click',()=>{s.count=Math.max(1,s.count-1);update()});$('more').addEventListener('click',()=>{s.count=Math.min(6,s.count+1);update()});$('shape').addEventListener('change',e=>{s.shape=e.target.value;update()});document.querySelectorAll('[data-ferment]').forEach(b=>b.addEventListener('click',()=>{s.ferment=+b.dataset.ferment;update()}));document.querySelectorAll('[data-mix]').forEach(b=>b.addEventListener('click',()=>{s.mix=b.dataset.mix;update()}));$('hydration').addEventListener('input',e=>{s.hydration=+e.target.value;update()});$('whole').addEventListener('input',e=>{s.whole=+e.target.value;update()});$('startTime').addEventListener('change',e=>{if(e.target.value){s.start=e.target.value;renderTimeline();save()}});$('nowBtn').addEventListener('click',()=>{let d=new Date();d.setSeconds(0,0);s.start=localDateValue(d);renderTimeline();save();toast('Timeline updated')});$('steps').addEventListener('click',e=>{const btn=e.target.closest('[data-done]');if(!btn)return;const i=+btn.dataset.done;s.done=s.done.includes(i)?s.done.filter(n=>n!==i):[...s.done,i].sort((a,b)=>a-b);const openBefore=Array.from(document.querySelectorAll('#steps details')).map(x=>x.open);renderSteps(recipe());document.querySelectorAll('#steps details').forEach((x,index)=>{x.open=openBefore[index]});save()});$('resetSteps').addEventListener('click',()=>{s.done=[];renderSteps(recipe());save();toast('Checklist reset')});$('copyBtn').addEventListener('click',()=>copy(plainRecipe()));$('ingredientCopy').addEventListener('click',()=>copy(plainRecipe(true)));$('printBtn').addEventListener('click',()=>window.print());update();
+})();
+</script>
+<div id="cookShell" class="cook-shell" hidden role="dialog" aria-modal="true" aria-label="Guided baking session">
+  <header class="cook-header"><div class="cook-header-inner">
+    <div><div class="cook-brand" id="cookBrand">BAKING STUDIO</div><div class="cook-batch" id="cookBatch"></div></div>
+    <button type="button" class="cook-close" id="cookClose">✕ Recipe & settings</button>
+  </div></header>
+  <main class="cook-wrap">
+    <p class="cook-overline" id="cookIndex"></p><h1 class="cook-h1" id="cookTitle"></h1>
+    <p class="cook-intro">Work through the step on screen, check it off when finished, and continue. You can jump between steps at any time.</p>
+    <div class="cook-progress-line"><div class="cook-progress-fill" id="cookProgress"></div></div>
+    <div class="cook-progress-label"><span id="cookProgressText"></span><span>Auto-saved on this device</span></div>
+    <div class="cook-jumps" id="cookJumps" aria-label="Jump to a recipe step"></div>
+    <div class="cook-columns">
+      <article class="cook-card" aria-live="polite">
+        <p class="cook-overline" id="cookPhase"></p>
+        <div class="cook-description" id="cookDescription"></div>
+        <div id="cookCounter" class="cook-counter" hidden><strong>Pieces baked</strong><button type="button" id="cookMinusBake" aria-label="Decrease baked count">−</button><span id="cookBakedCount">0 / 8</span><button type="button" id="cookPlusBake" aria-label="Increase baked count">+</button></div>
+        <label class="cook-stepdone"><input type="checkbox" id="cookDone"> <span>I've completed this step</span></label>
+        <div class="cook-finish" id="cookFinish" hidden>🎉 Every step is checked off! Enjoy your bake. Your progress and notes are still saved here.</div>
+      </article>
+      <aside>
+        <div class="cook-timer"><div class="cook-timer-header"><strong>⏱ Optional step timer</strong><span class="cook-caption" id="cookTimerHint"></span></div>
+          <div class="cook-clock" id="cookClock" aria-live="off">20:00</div>
+          <div class="cook-timer-controls"><button class="cook-smallbtn on" type="button" id="cookTimerToggle">▶ Start</button><button class="cook-smallbtn" type="button" id="cookTimerAdd">+5 min</button><button class="cook-smallbtn" type="button" id="cookTimerReset">↻ Reset</button></div>
+          <p class="cook-timer-message" id="cookTimerMessage">The timer works while this page is open. Use a phone alarm for long overnight stages.</p>
+        </div>
+        <div class="cook-card"><h2 class="cook-side-title">⚖️ Your full ingredient list</h2><div id="cookIngredients" class="cook-ingredients"></div>
+          <div class="cook-side-divider"></div><label for="cookNotes" class="cook-side-title">✎ My baking notes</label><textarea class="cook-note" id="cookNotes" placeholder="e.g. Stone temperature, dough feel, bake result…"></textarea>
+          <p class="cook-caption">Notes and settings are saved locally in this browser. If you change to another browser or file address, the saved data may not carry over.</p>
+          <div class="cook-side-divider"></div><button type="button" class="cook-smallbtn" id="cookNewBatch">↻ Start a new batch (reset checklist)</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer class="cook-footer"><div class="cook-footer-inner"><button type="button" id="cookBack">← Previous</button><button type="button" id="cookCompleteNext" class="primary">✓ Complete & next</button><button type="button" id="cookNext">Next →</button></div></footer>
+  <div class="cook-toast" id="cookToast" hidden role="status"></div>
+</div>
+
+
+<script>
+(() => {
+'use strict';
+const TYPE=document.body.dataset.recipeKind;
+const M=TYPE==='manoushe';
+const KEY=`guided-baking-v2-${TYPE}`;
+const $=id=>document.getElementById(id);
+const PANEL=$('cookShell');
+const MAX=M?9:8;
+const SUGGEST=M?[5,15,30,15,150,10,30,3,3]:[20,5,20,0,20,180,5,30];
+const PHASE=M?['Get ready','Knead','Rest','Chill overnight','Morning proof','Toppings','Heat your Ooni','Shape','Bake']:['Mix','Enrich','Folds','Cold fermentation','Pan & divide','Final proof','Finish','Bake'];
+const NO_TIMER=[M?3:3];
+let session={idx:0,notes:'',baked:0,timerStep:-1,timerRemaining:null,timerEnd:null};
+try{session={...session,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){}
+session.idx=Math.max(0,Math.min(MAX-1,Number(session.idx)||0));
+let interval=null;
+let onceFinished=false;
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(session))}catch(e){}};
+const safe=(txt)=>String(txt||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+function stepElements(){return Array.from(document.querySelectorAll('#steps > .step'));}
+function sourceStep(i){const el=stepElements()[i];if(!el)return{title:`Step ${i+1}`,html:'Please return to your recipe and choose a batch.'};
+ if(M){return{title:el.querySelector('h3')?.textContent||`Step ${i+1}`,html:el.querySelector('p')?.outerHTML||''};}
+ const body=el.querySelector('.step-body')?.cloneNode(true);if(body)body.querySelectorAll('button.done-btn').forEach(b=>b.remove());return{title:el.querySelector('.step-title')?.textContent||`Step ${i+1}`,html:body?.innerHTML||''};
+}
+function checked(){return stepElements().map((el,i)=>M?!!el.querySelector('input[data-step]')?.checked:el.classList.contains('done'));}
+function toggleComplete(i,want){const el=stepElements()[i];if(!el)return;
+ const active=M?!!el.querySelector('input[data-step]')?.checked:el.classList.contains('done');if(active===want)return;
+ if(M){let inp=el.querySelector('input[data-step]');if(inp){inp.checked=want;inp.dispatchEvent(new Event('change',{bubbles:true}))}}
+ else{const b=el.querySelector('button[data-done]');if(b)b.click();}
+}
+function weightInfo(){if(M){return `${$('sumPieces')?.textContent||''} · ${$('sumBall')?.textContent||''} each · ${$('diameter')?.value||'24'} cm`};const pan=$('panNote')?.textContent||'';return pan.replace(/^For\s*/i,'');}
+function ingredientList(){let list=[];
+ if(M){list=Array.from(document.querySelectorAll('#ingredientRows tr')).map(row=>[row.cells[0]?.textContent?.trim(),row.cells[1]?.textContent?.trim()]);
+ list.push(['Za’atar topping',$('toppingZ')?.textContent||''],['Olive oil for topping',$('toppingOil')?.textContent||'']);}
+ else{list=Array.from(document.querySelectorAll('#ingredientGrid .ingredient')).map(el=>[el.querySelector('label')?.textContent?.trim(),el.querySelector('strong')?.textContent?.trim()]);list.push(['Additional olive oil',$('extraOil')?.textContent||'']);}
+ return list.filter(x=>x[0]).map(([name,num])=>`<div class="cook-ingredient"><span>${safe(name)}</span><b>${safe(num)}</b></div>`).join('');}
+function howMany(){return M?Math.max(1,Math.round(Number($('count')?.value)||8)):1;}
+function clockFmt(ms){const seconds=Math.max(0,Math.ceil(ms/1000));let h=Math.floor(seconds/3600),m=Math.floor((seconds%3600)/60),s=seconds%60;return h?`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`:`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}
+function defaultMs(){return SUGGEST[session.idx]*60000;}
+function remain(){return session.timerEnd?Math.max(0,session.timerEnd-Date.now()):Math.max(0,session.timerRemaining??defaultMs());}
+function updateTimer(){const ms=remain();$('cookClock').textContent=NO_TIMER.includes(session.idx)?'—':clockFmt(ms);
+ const running=Boolean(session.timerEnd);
+ $('cookTimerToggle').disabled=NO_TIMER.includes(session.idx);
+ $('cookTimerAdd').disabled=NO_TIMER.includes(session.idx);
+ $('cookTimerReset').disabled=NO_TIMER.includes(session.idx);
+ $('cookTimerToggle').textContent=running?'Ⅱ Pause':(session.timerRemaining===0?'▶ Restart':'▶ Start');
+ $('cookTimerHint').textContent=NO_TIMER.includes(session.idx)?'Use the schedule':'Suggested '+SUGGEST[session.idx]+' min';
+ if(running && ms===0){session.timerEnd=null;session.timerRemaining=0;save();showToast('⏱ Timer finished — check your dough');try{if(navigator.vibrate)navigator.vibrate([120,70,120])}catch(e){} }
+}
+function resetTimer(){session.timerStep=session.idx;session.timerEnd=null;session.timerRemaining=defaultMs();save();updateTimer();}
+function showToast(txt){const t=$('cookToast');t.textContent=txt;t.hidden=false;clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>{t.hidden=true},3200)}
+function goto(i){session.idx=Math.max(0,Math.min(MAX-1,i));if(session.timerStep!==session.idx){session.timerStep=session.idx;session.timerRemaining=null;session.timerEnd=null;}save();renderCook();PANEL.scrollTo({top:0,behavior:'instant'});}
+function renderCook(){const i=session.idx;const step=sourceStep(i),flags=checked(),count=flags.filter(Boolean).length;
+ $('cookBrand').textContent=M?'🇱🇧 MAN’OUSHE LAB · COOK MODE':'✦ FOCACCIA LAB · COOK MODE';
+ $('cookBatch').textContent=weightInfo();
+ $('cookIndex').textContent=`STEP ${i+1} OF ${MAX} · ${PHASE[i]}`;
+ $('cookTitle').textContent=step.title;
+ $('cookPhase').textContent=PHASE[i];
+ $('cookDescription').innerHTML=step.html;
+ $('cookProgress').style.width=`${count/MAX*100}%`;
+ $('cookProgressText').textContent=`${count} of ${MAX} steps completed`;
+ $('cookDone').checked=flags[i];
+ $('cookJumps').innerHTML=flags.map((yes,j)=>`<button type="button" class="${j===i?'active':''} ${yes?'complete':''}" data-jump="${j}" aria-label="Go to step ${j+1}: ${safe(sourceStep(j).title)}" aria-current="${i===j?'step':'false'}">${yes?'✓':j+1}</button>`).join('');
+ $('cookIngredients').innerHTML=ingredientList();
+ $('cookBack').disabled=i===0;
+ $('cookNext').disabled=i===MAX-1;
+ $('cookCompleteNext').textContent=i===MAX-1?(flags[i]?'✓ All done':'✓ Finish baking'):(flags[i]?'Next step →':'✓ Complete & next');
+ $('cookFinish').hidden=count!==MAX;
+ $('cookCounter').hidden=!M||i!==MAX-1;
+ session.baked=Math.min(howMany(),Math.max(0,Number(session.baked)||0));
+ $('cookBakedCount').textContent=`${session.baked} / ${howMany()}`;
+ $('cookNotes').value=session.notes||'';
+ updateTimer();
+}
+function open(){PANEL.hidden=false;document.body.classList.add('guided-open');$('guidedStart').textContent='▶ Continue guided bake';renderCook();$('cookClose').focus({preventScroll:true});}
+function close(){PANEL.hidden=true;document.body.classList.remove('guided-open');$('guidedStart').focus({preventScroll:true});}
+$('guidedStart').addEventListener('click',open);
+$('cookClose').addEventListener('click',close);
+$('cookBack').addEventListener('click',()=>goto(session.idx-1));
+$('cookNext').addEventListener('click',()=>goto(session.idx+1));
+$('cookCompleteNext').addEventListener('click',()=>{toggleComplete(session.idx,true);if(session.idx<MAX-1){goto(session.idx+1)}else{renderCook();showToast('🎉 Bake complete — enjoy!')}});
+$('cookDone').addEventListener('change',(e)=>{toggleComplete(session.idx,e.target.checked);renderCook()});
+$('cookJumps').addEventListener('click',e=>{const b=e.target.closest('button[data-jump]');if(b)goto(Number(b.dataset.jump))});
+$('cookNotes').addEventListener('input',(e)=>{session.notes=e.target.value;save()});
+$('cookTimerToggle').addEventListener('click',()=>{if(NO_TIMER.includes(session.idx))return;if(session.timerEnd){session.timerRemaining=remain();session.timerEnd=null;}
+ else{const ms=remain()||defaultMs();session.timerRemaining=ms;session.timerEnd=Date.now()+ms;}session.timerStep=session.idx;save();updateTimer();});
+$('cookTimerAdd').addEventListener('click',()=>{if(NO_TIMER.includes(session.idx))return;if(session.timerEnd)session.timerEnd+=300000;else session.timerRemaining=remain()+300000;save();updateTimer();});
+$('cookTimerReset').addEventListener('click',resetTimer);
+$('cookMinusBake')?.addEventListener('click',()=>{session.baked=Math.max(0,session.baked-1);save();renderCook()});
+$('cookPlusBake')?.addEventListener('click',()=>{session.baked=Math.min(howMany(),session.baked+1);save();renderCook()});
+$('cookNewBatch').addEventListener('click',()=>{if(!window.confirm('Start a fresh batch? This resets completed steps, notes, and baking counter, but keeps your recipe settings.'))return;
+ checked().forEach((done,i)=>{if(done)toggleComplete(i,false)});session={idx:0,notes:'',baked:0,timerStep:-1,timerRemaining:null,timerEnd:null};save();renderCook();showToast('Fresh batch is ready');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!PANEL.hidden)close()});
+interval=setInterval(()=>{if(!PANEL.hidden)updateTimer()},1000);
+if(checked().some(Boolean))$('guidedStart').textContent='▶ Continue guided bake';
+})();
+</script>
+
+</body>
+</html>
